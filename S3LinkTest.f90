@@ -1,10 +1,10 @@
 program S3URLTest
     implicit none
-    !This code tests to see if Fortran can hand the AWS S3 URLs
-    !S3 URLs are annotated with extra, significant information
+    !This code tests to see if Fortran/NCZarr can handle the AWS S3 URLs
+    !S3 URLs are annotated with extra, significant information forming long URls
     !Declaration of Variables
-        character(LEN=10000) :: initialurl  !Max. Line Length
-        integer*4 :: truelength
+        character(LEN=1030) :: initialurl  !Max. Line Length for NCZarr is 1024 Per Dennis's Guide
+        integer*2 :: truelength
 
     !Body of Program
         !Prompting and Inputing of URL
@@ -12,8 +12,8 @@ program S3URLTest
         read(*, '(a)') initialurl
         !Testing of URL
         truelength=len_trim(initialurl)
-                if (truelength>9999) then
-                    print*, 'Length of URL exceeds 10,000'
+                if (truelength>1024) then
+                    print*, 'Length of URL exceeds 1024 Characters'
                 else
                     !Show Trimmed URL
                     write(*,*) 'Given URL=', trim(initialurl)
