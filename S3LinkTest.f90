@@ -18,7 +18,7 @@ program S3URLTest
                     !Show Trimmed URL
                     write(*,*) 'Given URL=', trim(initialurl)
                     !Test for Using Zarr
-                    !nc_open(trim(initialurl))
+                    nc_open(trim(initialurl))
                     print*, 'nc_open function launched'
                 endif
 
